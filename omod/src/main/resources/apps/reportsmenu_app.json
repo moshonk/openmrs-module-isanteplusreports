@@ -787,6 +787,15 @@
                 "url": "reportingui/runReport.page?reportDefinition=ef282113-32bd-49d7-870f-0ef41443e8de",
                 "order": 160,
                 "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.tb_indicator_report",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.tb_indicator_report",
+                "url": "reportingui/runIndicatorReport.page?reportDefinition=c657aa91-f3b7-4abf-a598-4dbaf7d50d96",
+                "order": 162,
+                "requiredPrivilege": "App: reportingui.reports"
             }
         ],
         "requiredPrivilege": "App: reportingui.reports"

@@ -279,5 +279,112 @@ public class TbReportIndicatorLibrary {
             ReportUtils.map(TBIndicatorReportCohortLibrary.patientsForWhomTheDiagnosisOfPulmonaryTbWasDoneWithoutASputumCohort(), IND_PARAMS),
             ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithPulmonaryTbCohort(), IND_PARAMS));
     }
+
+    public static CohortIndicator tbPatientsWhoStartedTreatmentWithin30DaysOfBeingDiagnosed() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.tb_patients_who_started_treatment_within_30_days_of_being_diagnosed",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.tbPatientsWhoStartedTreatmentWithin30DaysOfBeingDiagnosedCohort(), IND_PARAMS),
+            ReportUtils.map(TBIndicatorReportCohortLibrary.allTbCasesCohort(), IND_PARAMS));
+    }
+
+    public static CohortIndicator sputumPositiveTbPatientsOnTreatmentWithFollowUpSputumPerformed() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.sputum_positive_tb_patients_on_treatment_with_follow_up_sputum_performed",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.tbPatientsWithAPositiveSputumOnTreatmentWithFollowUpSputumPerformedCohort(), IND_PARAMS),
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsInTreatmentWithAPositiveSputumOnMonth0Cohort(), IND_PARAMS));
+    }
+
+    public static CohortIndicator patientsWithRespiratorySymptomsWhoHadASputumResulted() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.patients_with_respiratory_symptoms_who_had_a_sputum_resulted",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithRespiratorySymptomsAndSputumOrderedCohort(), IND_PARAMS),
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithRespiratorySymptomsCohort(), IND_PARAMS));
+    }     
+
+    public static CohortIndicator numberOfPatientsWithRespiratoryProblems() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_patients_with_respiratory_problems",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithRespiratorySymptomsCohort(), IND_PARAMS));
+    }
+ 
+     public static CohortIndicator numberOfPatientsWithRespiratoryProblemsWhoHadASputumDone() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_sputum_done_",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithRespiratorySymptomsAndSputumOrderedCohort(), IND_PARAMS));
+    }
+ 
+     public static CohortIndicator numberOfPatientsWithRespiratoryProblemsWhoHadAPositiveSputum() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_positive_sputum",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithRespiratorySymptomsAndSputumPositiveResultCohort(), IND_PARAMS));
+    }
+ 
+     public static CohortIndicator numberOfPatientsWithRespiratoryProblemsWhoHadANegativeSputum() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_negative_sputum",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithRespiratorySymptomsAndSputumNegativeResultCohort(), IND_PARAMS));
+    }    
+
+    public static CohortIndicator rateOfDetection() {
+         return EmrReportingUtils.cohortIndicator(
+             "isanteplusreports.rate_of_detection_",
+             ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithASputumPositiveResultAtMonth0Cohort(), IND_PARAMS),
+             ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithSputumResultAtMonth0Cohort(), IND_PARAMS));
+    }
+    
+    public static CohortIndicator numberOfPulmonaryTbPatientsDiagnosed() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_pulmonary_tb_patients_diagnosed",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithPulmonaryTbCohort(), IND_PARAMS));
+    }
+
+    public static CohortIndicator numberOfPatientsDiagnosedWithExtrapulmonaryTb() {
+        return EmrReportingUtils.cohortIndicator(
+           "isanteplusreports.number_of_patients_diagnosed_with_extrapulmonary_tb",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWithExtraPulmonaryTbCohort(), IND_PARAMS));
+    }
+ 
+
+    public static CohortIndicator numberOfTbCasesDiagnosed() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_tb_cases_diagnosed",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.allTbCasesCohort(), IND_PARAMS));
+    }  
+
+    public static CohortIndicator numberOfPatientsDiagnosedWithPulmonaryTbViaPositiveSputum() {
+        return EmrReportingUtils.cohortIndicator(
+           "isanteplusreports.number_of_patients_diagnosed_with_pulmonary_tb_via_positive_sputum",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsDiagnosedWithPulmonaryTbViaPositiveSputumCohort(), IND_PARAMS));
+    }
+ 
+    public static CohortIndicator numberOfPatientsDiagnosedWithPulmonaryTbWhoHaveANegativeSputum() {
+        return EmrReportingUtils.cohortIndicator(
+           "isanteplusreports.number_of_patients_diagnosed_with_pulmonary_tb_who_have_a_negative_sputum",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsDiagnosedWithPulmonaryTbWhoHaveANegativeSputumCohort(), IND_PARAMS));
+    } 
+
+    public static CohortIndicator numberOfPulmonaryTbPatientsDiagnosedWithoutSputumBeingPerformed() {
+        return EmrReportingUtils.cohortIndicator(
+           "isanteplusreports.number_of_pulmonary_tb_patients_diagnosed_without_sputum_being_performed",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.tbPatientsDiagnosedWithoutSputumBeingPerformedCohort(), IND_PARAMS));
+    }
+ 
+    public static CohortIndicator numberOfNewTbPatientsOnTreatment() {
+        return EmrReportingUtils.cohortIndicator(
+           "isanteplusreports.number_of_new_tb_patients_on_treatment",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.newTbPatientsOnTreatmentCohort(), IND_PARAMS));
+    }
+ 
+    public static CohortIndicator numberOfPatientsWhoFailedTreatment() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_patients_who_failed_treatment",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.patientsWhoFailedTbTreatmentCohort(), IND_PARAMS));
+    }
+
+    public static CohortIndicator numberOfPulmonaryTbPatientsEnrolledForAtLeast6MonthsWithNoSputumVerification() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_pulmonary_tb_patients_enrolled_for_at_least_6_months_with_no_sputum_verification",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.pulmonaryTbPatientsEnrolledForAtLeast6MonthsWithNoSputumVerificationCohort(), IND_PARAMS));
+    }
      
 }

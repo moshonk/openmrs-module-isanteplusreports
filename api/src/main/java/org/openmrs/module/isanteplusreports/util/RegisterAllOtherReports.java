@@ -8,6 +8,7 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.appframework.context.SessionContext;
 import org.openmrs.module.isanteplusreports.IsantePlusReportsProperties;
 import org.openmrs.module.isanteplusreports.IsantePlusReportsUtil;
+import org.openmrs.module.isanteplusreports.reporting.reports.TBIndicatorReport;
 import org.openmrs.module.reporting.common.MessageUtil;
 import org.openmrs.module.reporting.dataset.definition.DataSetDefinition;
 import org.openmrs.module.reporting.dataset.definition.service.DataSetDefinitionService;
@@ -96,6 +97,7 @@ public class RegisterAllOtherReports extends SessionContext {
 		numberHivPatient();
 		listOfExposedInfants();
 		artDispensationFollowUp();
+		TBIndicatorReport.registerReport();
 	}
 
 	private static void cleanTables() {
@@ -407,6 +409,10 @@ public class RegisterAllOtherReports extends SessionContext {
 				MessageUtil.translate("isanteplusreports.number_charge_virale_by_result_date"), IsantePlusReportsProperties.CHARGE_VIRALE_SELON_DATE_RESULTAT);
 	}
 	
+	/**
+	 * Indicator Report
+	 */
+
 	private static void listPatChargeViraleMoinsMilleByResultDate(){
 		IsantePlusReportsUtil.registerReportsWithStartAndEndDateParams("list_patients_charge_virale_moins_mille_by_result_date.sql","isanteplusreports.list_patients_charge_virale_moins_mille_by_result_date",
 				MessageUtil.translate("isanteplusreports.list_patients_charge_virale_moins_mille_by_result_date"), IsantePlusReportsProperties.LIST_PAT_CHARGE_VIRALE_MOINS_MILLE_RES_DATE);

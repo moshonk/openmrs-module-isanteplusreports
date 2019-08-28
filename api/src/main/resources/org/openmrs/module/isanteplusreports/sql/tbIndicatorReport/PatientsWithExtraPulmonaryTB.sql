@@ -8,7 +8,7 @@ WHERE
 	AND
 	(
 		tb_class_extrapulmonary = 1 -- Extra pulmonary tb classification
-		OR tb_extra_mengitis = 1 -- Meningitis TB
+		OR tb_extra_meningitis = 1 -- Meningitis TB
 		OR tb_extra_genital = 1 -- Genital TB
 		OR tb_extra_pleural = 1 -- Pleural TB
 		OR tb_extra_miliary = 1 -- Miliary TB

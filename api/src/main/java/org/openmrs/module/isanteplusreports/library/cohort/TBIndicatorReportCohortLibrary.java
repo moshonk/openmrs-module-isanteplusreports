@@ -71,7 +71,7 @@ public class TBIndicatorReportCohortLibrary {
     public static CohortDefinition patientsWithNewTbDiagnosisCohort() {
         
         SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
-            "PatientsWithNewTBDiagnosis.sql", 
+            "PatientsWithNewTbDiagnosis.sql", 
             "isanteplusreports.patients_with_new_tb_diagnosis");
         
         return cohortDefinition;
@@ -80,7 +80,7 @@ public class TBIndicatorReportCohortLibrary {
     public static CohortDefinition patientsWithPulmonaryTbCohort() {
         
         SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
-            "PatientsWithPulmonaryTB.sql", 
+            "PatientsWithPulmonaryTb.sql", 
             "isanteplusreports.patients_with_pulmonary_tb");
         
         return cohortDefinition;
@@ -125,7 +125,7 @@ public class TBIndicatorReportCohortLibrary {
     public static CohortDefinition patientsInTbTreatmentCohort() {
         
         SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
-            "PatientsInTBTreatment.sql", 
+            "PatientsInTbTreatment.sql", 
             "isanteplusreports.patients_in_tb_treatment");
         
         return cohortDefinition;
@@ -188,7 +188,7 @@ public class TBIndicatorReportCohortLibrary {
     public static CohortDefinition patientsWithASputumPositiveResultAtMonth0Cohort() {
         
         SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
-            "PatientsWithASputumPositiveResultAtMonth0.sql",
+            "PatientsWithSputumPositiveResultAtMonth0.sql",
             "isanteplusreports.patients_with_a_sputum_positive_result_at_month0");
         
         return cohortDefinition;
@@ -197,7 +197,7 @@ public class TBIndicatorReportCohortLibrary {
     public static CohortDefinition patientsWithASputumNegativeResultAtMonth0Cohort() {
         
         SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
-            "PatientsWithASputumNegativeResultAtMonth0.sql",
+            "PatientsWithSputumNegativeResultAtMonth0.sql",
             "isanteplusreports.patients_with_a_sputum_negative_result_at_month0");
         
         return cohortDefinition;
@@ -206,7 +206,7 @@ public class TBIndicatorReportCohortLibrary {
     public static CohortDefinition patientsWithASputumNegativeResultAtMonth2Cohort() {
         
         SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
-            "PatientsWithASputumNegativeResultAtMonth2.sql",
+            "PatientsWithSputumNegativeResultAtMonth2.sql",
             "isanteplusreports.patients_with_a_sputum_negative_result_at_month2");
         
         return cohortDefinition;
@@ -215,7 +215,7 @@ public class TBIndicatorReportCohortLibrary {
     public static CohortDefinition patientsWithASputumNegativeResultAtMonth3Cohort() {
         
         SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
-            "PatientsWithASputumNegativeResultAtMonth3.sql",
+            "PatientsWithSputumNegativeResultAtMonth3.sql",
             "isanteplusreports.patients_with_a_sputum_negative_result_at_month3");
         
         return cohortDefinition;
@@ -359,7 +359,17 @@ public class TBIndicatorReportCohortLibrary {
         
         return cd;
     }
-    
+
+    public static CohortDefinition patientsWithRespiratorySymptomsAndSputumNegativeResultCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.patients_with_respiratory_symptoms_and_sputum_positive_result");
+        cd.addSearch("withRespiratorySymptoms", ReportUtils.map(patientsWithRespiratorySymptomsCohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumNegative", ReportUtils.map(patientsWithSputumNegativeResultCohort(), COHORT_PARAMS));
+        cd.setCompositionString("withRespiratorySymptoms AND withSputumNegative");
+        
+        return cd;
+    }
+       
     public static CohortDefinition patientsWithRespiratorySymptomsAndSputumResultCohort() {
         
         CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.patients_with_respiratory_symptoms_and_sputum_result");
@@ -835,5 +845,127 @@ public static CohortDefinition tbPatientsCoInfectedWithHivOnArvsCohort() {
         
         return cd;
     }
+
+    public static CohortDefinition patientsWhoStartedTreatmentWithin30DaysOfBeingDiagnosedCohort() {
+        
+        SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
+            "PatientsWhoStartedTreatmentWithin30DaysOfBeingDiagnosed.sql", 
+            "isanteplusreports.patients_who_started_treatment_within_30_days_of_being_diagnosed");
+        
+        return cohortDefinition;
+    }
+
+    public static CohortDefinition tbPatientsWhoStartedTreatmentWithin30DaysOfBeingDiagnosedCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.tb_patients_who_started_treatment_within_30_days_of_being_diagnosed");
+
+        cd.addSearch("patientsWhoStartedTreatmentWithin30Days", ReportUtils.map(patientsWhoStartedTreatmentWithin30DaysOfBeingDiagnosedCohort(), COHORT_PARAMS));
+        cd.addSearch("tbPatients", ReportUtils.map(allTbCasesCohort(), COHORT_PARAMS));
+        cd.setCompositionString("patientsWhoStartedTreatmentWithin30Days AND tbPatients");
+        
+        return cd;
+    }
+
+    public static CohortDefinition patientsWithFollowUpSputumPerformedCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.patients_with_follow_up_sputum_performed");
+
+        cd.addSearch("withSputumResultAtMonth2", ReportUtils.map(patientsWithSputumResultAtMonth2Cohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumResultAtMonth3", ReportUtils.map(patientsWithSputumResultAtMonth3Cohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumResultAtMonth5", ReportUtils.map(patientsWithSputumResultAtMonth5Cohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumResultAtEnd", ReportUtils.map(patientsWithSputumResultAtEndCohort(), COHORT_PARAMS));
+        cd.setCompositionString("withSputumResultAtMonth2 OR withSputumResultAtMonth3 OR withSputumResultAtMonth5 OR withSputumResultAtEnd");
+        
+        return cd;
+    }
+    
+    
+    public static CohortDefinition tbPatientsWithAPositiveSputumOnTreatmentWithFollowUpSputumPerformedCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.tb_patients_with_a_positive_sputum_on_treatment_with_follow_up_sputum_performed");
+
+        cd.addSearch("withASputumPositive", ReportUtils.map(patientsWithASputumPositiveResultAtMonth0Cohort(), COHORT_PARAMS));
+        cd.addSearch("onTbTreatment", ReportUtils.map(patientsInTbTreatmentCohort(), COHORT_PARAMS));
+        cd.addSearch("withFollowupSputum", ReportUtils.map(patientsWithFollowUpSputumPerformedCohort(), COHORT_PARAMS));
+        cd.setCompositionString("withASputumPositive AND onTbTreatment AND withFollowupSputum");
+        
+        return cd;
+    }
  
+    public static CohortDefinition patientsDiagnosedWithPulmonaryTbViaPositiveSputumCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.patients_diagnosed_with_pulmonary_tb_via_positive_sputum");
+
+        cd.addSearch("withPulmonaryTb", ReportUtils.map(patientsWithPulmonaryTbCohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumPositive", ReportUtils.map(patientsWithASputumPositiveResultAtMonth0Cohort(), COHORT_PARAMS));
+        cd.setCompositionString("withPulmonaryTb AND withSputumPositive");
+        
+        return cd;
+    }
+ 
+    public static CohortDefinition patientsDiagnosedWithPulmonaryTbWhoHaveANegativeSputumCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.patients_diagnosed_with_pulmonary_tb_who_have_a_negative_sputum");
+
+        cd.addSearch("withPulmonaryTb", ReportUtils.map(patientsWithPulmonaryTbCohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumNegative", ReportUtils.map(patientsWithASputumNegativeResultAtMonth0Cohort(), COHORT_PARAMS));
+        cd.setCompositionString("withPulmonaryTb AND withSputumNegative");
+        
+        return cd;
+    }
+ 
+    public static CohortDefinition tbPatientsDiagnosedWithoutSputumBeingPerformedCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.tb_patients_diagnosed_without_sputum_being_performed");
+
+        cd.addSearch("withPulmonaryTb", ReportUtils.map(patientsWithPulmonaryTbCohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumResult", ReportUtils.map(patientsWithSputumResultAtMonth0Cohort(), COHORT_PARAMS));
+        cd.setCompositionString("withPulmonaryTb AND NOT withSputumResult");
+        
+        return cd;
+    }     
+    
+    public static CohortDefinition newTbPatientsOnTreatmentCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports. new_tb_patients_on_treatment");
+
+        cd.addSearch("newlyDiagnosedPatients", ReportUtils.map(patientsWithNewTbDiagnosisCohort(), COHORT_PARAMS));
+        cd.addSearch("onTbTreatment", ReportUtils.map(patientsInTbTreatmentCohort(), COHORT_PARAMS));
+        cd.setCompositionString("newlyDiagnosedPatients AND onTbTreatment");
+        
+        return cd;
+    }
+     
+    public static CohortDefinition tbPatientsNotReceivingTreatmentCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.tb_patients_not_receiving_treatment");
+
+        cd.addSearch("tbPatients", ReportUtils.map(allTbCasesCohort(), COHORT_PARAMS));
+        cd.addSearch("onTbTreatment", ReportUtils.map(patientsInTbTreatmentCohort(), COHORT_PARAMS));
+        cd.setCompositionString("tbPatients AND NOT onTbTreatment");
+        
+        return cd;
+    }
+
+    public static CohortDefinition patientsEnrolledForAtLeast6MonthsCohort() {
+        
+        SqlCohortDefinition cohortDefinition = sqlCohortDefinition(
+            "PatientsEnrolledForAtLeast6Months.sql", 
+            "isanteplusreports.patients_enrolled_for_at_least_6_months");
+        
+        return cohortDefinition;
+    }
+
+    public static CohortDefinition pulmonaryTbPatientsEnrolledForAtLeast6MonthsWithNoSputumVerificationCohort() {
+        
+        CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.pulmonary_tb_patients_enrolled_for_at_least_6_months_with_no_sputum_verification");
+
+        cd.addSearch("enrolledAtLeast6Months", ReportUtils.map(patientsEnrolledForAtLeast6MonthsCohort(), COHORT_PARAMS));
+        cd.addSearch("withPulmonaryTb", ReportUtils.map(patientsWithPulmonaryTbCohort(), COHORT_PARAMS));
+        cd.addSearch("withSputumResult", ReportUtils.map(patientsWithSputumResultAtMonth0Cohort(), COHORT_PARAMS));
+        cd.setCompositionString("(enrolledAtLeast6Months AND withPulmonaryTb) AND NOT withSputumResult");
+        
+        return cd;
+    }
+    
 }

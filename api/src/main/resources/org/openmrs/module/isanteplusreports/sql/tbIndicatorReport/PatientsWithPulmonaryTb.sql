@@ -15,7 +15,7 @@ WHERE
 	AND
 	(
 		tb_class_extrapulmonary <> 1 -- Extra pulmonary TB
-		AND tb_extra_mengitis <> 1 -- Meningitis TB
+		AND tb_extra_meningitis <> 1 -- Meningitis TB
 		AND tb_extra_genital <> 1 -- Genital TB
 		AND tb_extra_pleural <> 1 -- Pleural TB
 		AND tb_extra_miliary <> 1 -- Miliary TB
