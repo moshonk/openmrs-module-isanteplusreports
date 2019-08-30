@@ -386,5 +386,11 @@ public class TbReportIndicatorLibrary {
             "isanteplusreports.number_of_pulmonary_tb_patients_enrolled_for_at_least_6_months_with_no_sputum_verification",
             ReportUtils.map(TBIndicatorReportCohortLibrary.pulmonaryTbPatientsEnrolledForAtLeast6MonthsWithNoSputumVerificationCohort(), IND_PARAMS));
     }
-     
+
+    public static CohortIndicator numberOfTbPatientsNotReceivingTreatment() {
+        return EmrReportingUtils.cohortIndicator(
+            "isanteplusreports.number_of_tb_patients_not_receiving_treatment",
+            ReportUtils.map(TBIndicatorReportCohortLibrary.tbPatientsNotReceivingTreatmentCohort(), IND_PARAMS));
+    }
+        
 }

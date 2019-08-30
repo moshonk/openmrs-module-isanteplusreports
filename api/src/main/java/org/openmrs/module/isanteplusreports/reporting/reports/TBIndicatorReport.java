@@ -33,7 +33,7 @@ public class TBIndicatorReport {
         dsd.setName("isanteplusreports.tb_indicator_report");
         dsd.setDescription(MessageUtil.translate("isanteplusreports.tb_indicator_report"));
 
-        ColumnParameters col = new ColumnParameters("1", "PERCENT", "");
+        ColumnParameters col = new ColumnParameters("1", "", "");
 
         List<ColumnParameters> allColumns = Arrays.asList(col);
         
@@ -323,6 +323,232 @@ public class TBIndicatorReport {
             ReportUtils.map(TbReportIndicatorLibrary.patientsForWhomTheDiagnosisOfPulmonaryTbWasDoneWithoutASputum(), IND_PARAMS),
             allColumns,
             Arrays.asList("42"));
+
+        EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.newly_diagnosed_tb_patients", 
+            MessageUtil.translate("isanteplusreports.newly_diagnosed_tb_patients"),
+            ReportUtils.map(TbReportIndicatorLibrary.newlyDiagnosedTbPatients(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("30"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_who_started_their_tb_treatment", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_who_started_their_tb_treatment"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsWhoStartedTheirTbTreatment(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("31"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_who_completed_treatment_but_did_not_meet_the_criteria_for_cure_or_failure", 
+            MessageUtil.translate("isanteplusreports.patients_who_completed_treatment_but_did_not_meet_the_criteria_for_cure_or_failure"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsWhoCompletedTreatmentButDidNotMeetTheCriteriaForCureOrFailure(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("32"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.all_tb_patients_cured", 
+            MessageUtil.translate("isanteplusreports.all_tb_patients_cured"),
+            ReportUtils.map(TbReportIndicatorLibrary.allTbPatientsCured(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("33"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.tb_patients_who_never_had_a_follow_up_sputum_test", 
+            MessageUtil.translate("isanteplusreports.tb_patients_who_never_had_a_follow_up_sputum_test"),
+            ReportUtils.map(TbReportIndicatorLibrary.tbPatientsWhoNeverHadAFollowUpSputumTest(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("34"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_evaluated_for_sputum_in_month_0_but_not_in_month_2", 
+            MessageUtil.translate("isanteplusreports.patients_evaluated_for_sputum_in_month_0_but_not_in_month_2"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsEvaluatedForSputumInMonth0ButNotInMonth2(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("35"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_evaluated_for_sputum_in_month_0_but_not_in_month_2", 
+            MessageUtil.translate("isanteplusreports.patients_evaluated_for_sputum_in_month_0_but_not_in_month_2"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsEvaluatedForSputumInMonth0ButNotInMonth2(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("36"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.tb_patients_who_have_not_had_an_xray_done", 
+            MessageUtil.translate("isanteplusreports.tb_patients_who_have_not_had_an_xray_done"),
+            ReportUtils.map(TbReportIndicatorLibrary.tbPatientsWhoHaveNotHadAnXrayDone(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("37"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_who_have_had_respiratory_symptoms_and_received_a_sputum_test_ordered", 
+            MessageUtil.translate("isanteplusreports.patients_who_have_had_respiratory_symptoms_and_received_a_sputum_test_ordered"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsWhoHaveHadRespiratorySymptomsAndReceivedASputumTestOrdered(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("38"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_with_symptoms_problems_who_did_not_complete_a_series_of_3_sputum", 
+            MessageUtil.translate("isanteplusreports.patients_with_symptoms_problems_who_did_not_complete_a_series_of_3_sputum"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsWithSymptomsProblemsWhoDidNotCompleteASeriesOf3Sputum(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("39"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.all_patients_with_respiratory_symptoms_who_never_had_a_sputum_resulted", 
+            MessageUtil.translate("isanteplusreports.all_patients_with_respiratory_symptoms_who_never_had_a_sputum_resulted"),
+            ReportUtils.map(TbReportIndicatorLibrary.allPatientsWithRespiratorySymptomsWhoNeverHadASputumResulted(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("40"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_with_sputum_positive_result", 
+            MessageUtil.translate("isanteplusreports.patients_with_sputum_positive_result"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsWithSputumPositiveResult(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("41"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_for_whom_the_diagnosis_of_pulmonary_tb_was_done_without_a_sputum", 
+            MessageUtil.translate("isanteplusreports.patients_for_whom_the_diagnosis_of_pulmonary_tb_was_done_without_a_sputum"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsForWhomTheDiagnosisOfPulmonaryTbWasDoneWithoutASputum(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("42"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.tb_patients_who_started_treatment_within_30_days_of_being_diagnosed", 
+            MessageUtil.translate("isanteplusreports.tb_patients_who_started_treatment_within_30_days_of_being_diagnosed"),
+            ReportUtils.map(TbReportIndicatorLibrary.tbPatientsWhoStartedTreatmentWithin30DaysOfBeingDiagnosed(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("43"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.sputum_positive_tb_patients_on_treatment_with_follow_up_sputum_performed", 
+            MessageUtil.translate("isanteplusreports.sputum_positive_tb_patients_on_treatment_with_follow_up_sputum_performed"),
+            ReportUtils.map(TbReportIndicatorLibrary.sputumPositiveTbPatientsOnTreatmentWithFollowUpSputumPerformed(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("44"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.patients_with_respiratory_symptoms_who_had_a_sputum_resulted", 
+            MessageUtil.translate("isanteplusreports.patients_with_respiratory_symptoms_who_had_a_sputum_resulted"),
+            ReportUtils.map(TbReportIndicatorLibrary.patientsWithRespiratorySymptomsWhoHadASputumResulted(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("45"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_with_respiratory_problems", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_with_respiratory_problems"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsWithRespiratoryProblems(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("46"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_sputum_done_", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_sputum_done_"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsWithRespiratoryProblemsWhoHadASputumDone(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("47"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_positive_sputum", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_positive_sputum"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsWithRespiratoryProblemsWhoHadAPositiveSputum(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("48"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_negative_sputum", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_with_respiratory_problems_who_had_a_negative_sputum"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsWithRespiratoryProblemsWhoHadANegativeSputum(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("49"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.rate_of_detection_", 
+            MessageUtil.translate("isanteplusreports.rate_of_detection_"),
+            ReportUtils.map(TbReportIndicatorLibrary.rateOfDetection(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("50"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_pulmonary_tb_patients_diagnosed", 
+            MessageUtil.translate("isanteplusreports.number_of_pulmonary_tb_patients_diagnosed"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPulmonaryTbPatientsDiagnosed(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("51"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_diagnosed_with_extrapulmonary_tb", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_diagnosed_with_extrapulmonary_tb"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsDiagnosedWithExtrapulmonaryTb(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("52"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_tb_cases_diagnosed", 
+            MessageUtil.translate("isanteplusreports.number_of_tb_cases_diagnosed"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfTbCasesDiagnosed(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("53"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_diagnosed_with_pulmonary_tb_via_positive_sputum", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_diagnosed_with_pulmonary_tb_via_positive_sputum"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsDiagnosedWithPulmonaryTbViaPositiveSputum(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("54"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_diagnosed_with_pulmonary_tb_who_have_a_negative_sputum", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_diagnosed_with_pulmonary_tb_who_have_a_negative_sputum"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsDiagnosedWithPulmonaryTbWhoHaveANegativeSputum(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("55"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_pulmonary_tb_patients_diagnosed_without_sputum_being_performed", 
+            MessageUtil.translate("isanteplusreports.number_of_pulmonary_tb_patients_diagnosed_without_sputum_being_performed"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPulmonaryTbPatientsDiagnosedWithoutSputumBeingPerformed(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("56"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_new_tb_patients_on_treatment", 
+            MessageUtil.translate("isanteplusreports.number_of_new_tb_patients_on_treatment"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfNewTbPatientsOnTreatment(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("57"));
+
+/*
+ *       EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_tb_patients_on_treatment_who_relapsed", 
+            MessageUtil.translate("isanteplusreports.number_of_tb_patients_on_treatment_who_relapsed"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfTbPatientsOnTreatmentWhoRelapsed(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("58"));
+*/
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_tb_patients_not_receiving_treatment", 
+            MessageUtil.translate("isanteplusreports.number_of_tb_patients_not_receiving_treatment"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfTbPatientsNotReceivingTreatment(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("59"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_patients_who_failed_treatment", 
+            MessageUtil.translate("isanteplusreports.number_of_patients_who_failed_treatment"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPatientsWhoFailedTreatment(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("60"));
+
+      EmrReportingUtils.addRow(dsd,
+            "isanteplusreports.number_of_pulmonary_tb_patients_enrolled_for_at_least_6_months_with_no_sputum_verification", 
+            MessageUtil.translate("isanteplusreports.number_of_pulmonary_tb_patients_enrolled_for_at_least_6_months_with_no_sputum_verification"),
+            ReportUtils.map(TbReportIndicatorLibrary.numberOfPulmonaryTbPatientsEnrolledForAtLeast6MonthsWithNoSputumVerification(), IND_PARAMS),
+            allColumns,
+            Arrays.asList("61"));
         
         return dsd;
     }
