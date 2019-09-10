@@ -82,14 +82,22 @@
 		  <groupId>org.openmrs.module</groupId>
 		  <artifactId>appui-omod</artifactId>
 		</dependency>
-		<dependency>
+        <dependency>
 		  <groupId>org.openmrs.module</groupId>
 		  <artifactId>metadatadeploy-api</artifactId>
+		    <scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>metadatamapping-api</artifactId>
+		</dependency>
+
 		<dependency>
 		  <groupId>org.openmrs.module</groupId>
 		  <artifactId>isanteplus-api</artifactId>
 		</dependency>
+		
 		<dependency>
 				<groupId>org.openmrs.module</groupId>
 				<artifactId>coreapps-api</artifactId>
@@ -103,6 +111,11 @@
 				<artifactId>reportingui-api</artifactId>
 				<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>serialization.xstream-api-2.0</artifactId>
+		</dependency>
 		
 		<!-- End OpenMRS modules -->
 		
@@ -112,13 +125,11 @@
 		<dependency>
 			<groupId>org.openmrs.api</groupId>
 			<artifactId>openmrs-api</artifactId>
-			<type>jar</type>
 		</dependency>
 		
 		<dependency>
 			<groupId>org.openmrs.web</groupId>
 			<artifactId>openmrs-web</artifactId>
-			<type>jar</type>
 		</dependency>
 				
 		<dependency>
@@ -176,7 +187,7 @@
 		<testResources>
 			<testResource>
 				<directory>src/test/resources</directory>
-				<filtering>true</filtering>
+				<filtering>false</filtering>
 			</testResource>
 		</testResources>
 	</build>
