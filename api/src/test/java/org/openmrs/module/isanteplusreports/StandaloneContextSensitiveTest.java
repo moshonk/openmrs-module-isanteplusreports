@@ -10,8 +10,11 @@ public abstract class StandaloneContextSensitiveTest extends BaseModuleContextSe
     @Override
     public Properties getRuntimeProperties() {
         Properties p = super.getRuntimeProperties();
-        String url = "jdbc:h2:mem:openmrs;DB_CLOSE_DELAY=30;LOCK_TIMEOUT=10000";
-        runtimeProperties.setProperty(Environment.URL, url);
+        String url = "jdbc:h2:mem:isanteplus;" + "INIT=CREATE SCHEMA IF NOT EXISTS isanteplus\\;"
+                + "RUNSCRIPT FROM 'classpath:org/openmrs/module/isanteplusreports/sql/init.sql'\\;"
+                + "RUNSCRIPT FROM 'classpath:org/openmrs/module/isanteplusreports/sql/data.sql'\\;"
+                + ";DB_CLOSE_DELAY=30;LOCK_TIMEOUT=10000";
+        p.setProperty(Environment.URL, url);
         
         return p;
     }
