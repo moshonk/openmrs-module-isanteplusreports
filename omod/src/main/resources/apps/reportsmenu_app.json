@@ -397,7 +397,7 @@
 		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
 		        "type": "link",
 		        "label": "isanteplusreports.number_women_seen_first_prenatal_visit_first_trimester",
-		      	"url": "reportingui/runReport.page?reportDefinition=99dd9482-6e97-49be-8e6e-123ba8f689cb",
+		      	"url": "reportingui/runIndicatorReport.page?reportDefinition=99dd9482-6e97-49be-8e6e-123ba8f689cb",
 		        "order": 57,
 		        "requiredPrivilege": "App: reportingui.reports"
 		    },  
@@ -415,7 +415,7 @@
 		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
 		        "type": "link",
 		        "label": "isanteplusreports.number_visits_by_pregnant_women_to_the_clinic",
-		      	"url": "reportingui/runReport.page?reportDefinition=6647de56-ada8-4a01-a5ed-3e8db17d3957",
+		      	"url": "reportingui/runIndicatorReport.page?reportDefinition=6647de56-ada8-4a01-a5ed-3e8db17d3957",
 		        "order": 60,
 		        "requiredPrivilege": "App: reportingui.reports"
 		    }, 
@@ -748,7 +748,7 @@
 		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
 		        "type": "link",
 		        "label": "isanteplusreports.pregnancy_women_tested_for_syphilis",
-		      	"url": "reportingui/runReport.page?reportDefinition=23f61edd-76b1-4e68-a24d-c3c16a91436d",
+		      	"url": "reportingui/runIndicatorReport.page?reportDefinition=23f61edd-76b1-4e68-a24d-c3c16a91436d",
 		        "order": 47,
 		        "requiredPrivilege": "App: reportingui.reports"
 		    }, 
@@ -757,7 +757,7 @@
 		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
 		        "type": "link",
 		        "label": "isanteplusreports.pregnancy_women_diagnosed_with_syphilis",
-		      	"url": "reportingui/runReport.page?reportDefinition=613d0119-cb40-4fed-aa67-56f032a20cc9",
+		      	"url": "reportingui/runIndicatorReport.page?reportDefinition=613d0119-cb40-4fed-aa67-56f032a20cc9",
 		        "order": 48,
 		        "requiredPrivilege": "App: reportingui.reports"
 		    }, 
