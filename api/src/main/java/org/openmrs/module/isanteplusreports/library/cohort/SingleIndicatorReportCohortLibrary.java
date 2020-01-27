@@ -3,7 +3,6 @@ package org.openmrs.module.isanteplusreports.library.cohort;
 import java.util.Date;
 
 import org.openmrs.module.isanteplusreports.IsantePlusReportsUtil;
-import org.openmrs.module.isanteplusreports.reporting.utils.ReportUtils;
 import org.openmrs.module.isanteplusreports.util.IsantePlusReportsConstants;
 import org.openmrs.module.reporting.cohort.definition.CohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.CompositionCohortDefinition;
@@ -18,8 +17,6 @@ public class SingleIndicatorReportCohortLibrary {
 	private static final Parameter END_DATE = new Parameter("endDate", "End Date", Date.class);
 	
 	private static final Parameter START_DATE = new Parameter("startDate", "Start Date", Date.class);
-	
-	private static final String COHORT_PARAMS = "startDate=${startDate},endDate=${endDate},location=${location}";
 	
 	public static SqlCohortDefinition sqlCohortDefinition(String sqlResourceName, String cohortDefinitionName) {
 		String sql = IsantePlusReportsUtil
@@ -48,21 +45,21 @@ public class SingleIndicatorReportCohortLibrary {
 		
 		return cohortDefinition;
 	}
+
+	public static CohortDefinition patientsWhoDiscontinuedDrugs() {
+		
+		SqlCohortDefinition cohortDefinition = sqlCohortDefinition("DiscontinuedDrugs.sql",
+		    "isanteplusreports.discontinued_drugs");
+		
+		return cohortDefinition;
+	}	
 	
-	public static CohortDefinition casesWithNonConfirmedMalariaCasesCohort() {
+	public static CohortDefinition patientsWhoDiscontinuedCotrimoxazole() {
 		
-		CompositionCohortDefinition cd = compositionCohortDefinition("isanteplusreports.non_confirmed_malaria_cases");
+		SqlCohortDefinition cohortDefinition = sqlCohortDefinition("DiscontinuedCotrimoxazole.sql",
+		    "isanteplusreports.discontinued_cotrimoxazole");
 		
-		cd.addSearch("MalariaSuspects", ReportUtils.map(casesWithSuspectedMalariaCohort(), COHORT_PARAMS));
-		cd.addSearch("ConfirmedMalaria", ReportUtils.map(casesWithConfirmedMalariaCohort(), COHORT_PARAMS));
-		cd.addSearch("QuinineTreatment", ReportUtils.map(casesTreatedWithQuinineCohort(), COHORT_PARAMS));
-		cd.addSearch("ChloroquineTreatment", ReportUtils.map(casesTreatedWithChloroquineCohort(), COHORT_PARAMS));
-		cd.addSearch("PrimaquineTreatment", ReportUtils.map(casesTreatedWithPrimaquineCohort(), COHORT_PARAMS));
-		
-		cd.setCompositionString(
-		    "MalariaSuspects AND NOT ConfirmedMalaria AND (QuinineTreatment OR ChloroquineTreatment OR PrimaquineTreatment)");
-		
-		return cd;
+		return cohortDefinition;
 	}
 		
 }

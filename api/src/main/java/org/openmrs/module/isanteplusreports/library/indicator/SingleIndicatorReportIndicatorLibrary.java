@@ -14,5 +14,17 @@ public class SingleIndicatorReportIndicatorLibrary {
 		    ReportUtils.map(SingleIndicatorReportCohortLibrary.artEnrollmentAmongMedicallyEligible(),
 		        IND_PARAMS));
 	}
+
+	public static CohortIndicator patientsWhoDiscontinuedDrugs() {
+		return EmrReportingUtils.cohortIndicator("isanteplusreports.discontinued_drugs",
+		    ReportUtils.map(SingleIndicatorReportCohortLibrary.patientsWhoDiscontinuedDrugs(),
+		        IND_PARAMS));
+	}	
 	
+	public static CohortIndicator patientsWhoDiscontinuedCotrimoxazole() {
+		return EmrReportingUtils.cohortIndicator("isanteplusreports.discontinued_cotrimoxazole",
+		    ReportUtils.map(SingleIndicatorReportCohortLibrary.patientsWhoDiscontinueCotrimoxazole(),
+		        IND_PARAMS));
+	}	
+
 }
