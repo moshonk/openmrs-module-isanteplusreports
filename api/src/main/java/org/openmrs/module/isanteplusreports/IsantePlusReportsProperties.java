@@ -79,7 +79,7 @@ public class IsantePlusReportsProperties{
 	
 	public static final String PREGNANCY_WOMEN_TESTED_FOR_SYPHILIS_UUID = "23f61edd-76b1-4e68-a24d-c3c16a91436d";
 	
-	public static final String PREGNANCY_WOMEN_DIAGNOSED_WITH_SYPHILIS = "613d0119-cb40-4fed-aa67-56f032a20cc9";
+	public static final String PREGNANCY_WOMEN_DIAGNOSED_WITH_SYPHILIS_UUID = "613d0119-cb40-4fed-aa67-56f032a20cc9";
 	
 	public static final String NUMBER_PRENATAL_VISIT_BY_SITE_UUID = "b7f7ea96-3fe4-4a17-99b5-1ad2cdaadf50";
 	
@@ -176,5 +176,7 @@ public class IsantePlusReportsProperties{
 	public static final String LIST_OF_EXPOSED_INFANTS_UUID = "3d6ee8cc-cfea-4ce7-b84b-3c6893ce6a2c";
 	
 	public static final String ART_DISPENSATION_FOLLOW_UP_UUID = "ef282113-32bd-49d7-870f-0ef41443e8de";
+	
+	public static final String NEXT_VISIT_BY_PERIOD_UUID = "f3bef310-0e62-4b4f-88f1-8b7983ea51cb";
 
 }

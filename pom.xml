@@ -5,7 +5,7 @@
 	
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>isanteplusreports</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>IsantePlusReports</name>
 	<description>Provides all reports for iSantePlus EMR</description>
@@ -34,7 +34,6 @@
 		<reportingobjectgroupVersion>1.1</reportingobjectgroupVersion>
 		<reportinguiVersion>1.3.0</reportinguiVersion>
         <reportingrestVersion>1.6</reportingrestVersion>
-        <serializationVersion>0.2.7</serializationVersion>
 		<serializationxstreamVersion>0.2.12</serializationxstreamVersion>
 		<emrapiVersion>1.21.0</emrapiVersion>
 		<appframeworkVersion>2.10.0</appframeworkVersion>
