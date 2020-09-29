@@ -1,14 +1,15 @@
 package org.openmrs.module.isanteplusreports.reporting.utils;
 
+import java.util.Date;
+import java.util.List;
+
 import org.openmrs.Location;
 import org.openmrs.module.reporting.cohort.definition.CohortDefinition;
+import org.openmrs.module.reporting.common.MessageUtil;
 import org.openmrs.module.reporting.dataset.definition.CohortIndicatorDataSetDefinition;
 import org.openmrs.module.reporting.evaluation.parameter.Mapped;
 import org.openmrs.module.reporting.evaluation.parameter.Parameter;
 import org.openmrs.module.reporting.indicator.CohortIndicator;
-
-import java.util.Date;
-import java.util.List;
 
 public class EmrReportingUtils {
 
@@ -26,10 +27,30 @@ public class EmrReportingUtils {
 		ind.addParameter(new Parameter("revisionEndDate", "Revision End Date", Date.class));
 		ind.addParameter(new Parameter("location", "Location", Location.class));
 		ind.addParameter(new Parameter("testStart", "Test Start", Boolean.class));
+        ind.setDescription(MessageUtil.translate(name));
 		ind.setCohortDefinition(cohort);
 		return ind;
 	}
 
+	/**
+	 * Creates a new cohort indicator
+	 * 
+	 * @param name   the indicator name
+	 * @param parameters List of evaluation parameters
+	 * @param cohort the mapped cohort
+	 * @return the cohort indicator
+	 */
+	public static CohortIndicator cohortIndicator(String name, List<Parameter> Parameters, Mapped<CohortDefinition> cohort) {
+		CohortIndicator ind = new CohortIndicator(name);
+
+		for (Parameter parameter : Parameters) {
+			ind.addParameter(parameter);
+		}
+        ind.setDescription(MessageUtil.translate(name));
+		ind.setCohortDefinition(cohort);
+		return ind;
+	}
+		
 	/**
 	 * Creates a new cohort indicator with numerator and a denominator cohort
 	 * 
